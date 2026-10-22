@@ -1,0 +1,51 @@
+<script type="text/javascript">
+    RED.nodes.registerType('ntp', {
+        category: 'ntp',       
+        color: "#ffcc66",          
+        defaults: {
+            name: { value: "" },
+            server: { value: "ntp.nict.jp", required: true }, 
+            timezone: { value: 9, required: true }            // 日本時間(+9)
+        },
+        inputs: 1,
+        outputs: 1,
+        icon: "timer.svg",
+        align: "left",
+        label: function () {
+            return this.name || "NTP TimeSync"; 
+        },
+        oneditprepare: function() {
+            
+        }
+    });
+</script>
+
+<script type="text/html" data-template-name="ntp">
+    <div class="form-row">
+        <label for="node-input-name"><i class="fa fa-tag"></i> 名前</label>
+        <input type="text" id="node-input-name" placeholder="名前">
+    </div>
+    <div class="form-row">
+        <label for="node-input-server"><i class="fa fa-globe"></i> サーバー</label>
+        <input type="text" id="node-input-server" placeholder="例: ntp.nict.jp">
+    </div>
+    <div class="form-row">
+        <label for="node-input-timezone"><i class="fa fa-clock-o"></i> タイムゾーン</label>
+        <input type="number" id="node-input-timezone" placeholder="例: 9 (日本時間)">
+    </div>
+</script>
+
+<script type="text/x-red" data-help-name="ntp">
+    <p>NTPサーバーと通信し、マイコンの内部時計を同期するノードです。</p>
+    
+    <h3>設定項目</h3>
+    <dl class="message-properties">
+        <dt>サーバー</dt>
+        <dd>時刻を取得するNTPサーバーのアドレスを指定します（例：<code>ntp.nict.jp</code>）。</dd>
+        
+        <dt>タイムゾーン</dt>
+        <dd>協定世界時（UTC）との時差を指定します。日本時間（JST）にする場合は <code>9</code> を設定してください。</dd>
+    </dl>
+    
+    <p>入力にメッセージを受け取ると時刻同期を実行し、完了後に次のノードへメッセージを渡します。</p>
+</script>
