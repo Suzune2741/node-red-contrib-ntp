@@ -1,0 +1,43 @@
+<script type="text/javascript">
+    RED.nodes.registerType('timestamp', {
+        category: 'ntp',
+        color: "#a6bbcf",
+        defaults: {
+            name: { value: "" },
+            varname: { value: "t1", required: true },
+            format: { value: "time_only" }
+        },
+        inputs: 1,
+        outputs: 1,
+        icon: "font-awesome/fa-clock-o",
+        label: function () {
+            return this.name || "timestamp";
+        }
+    });
+</script>
+
+<script type="text/html" data-template-name="timestamp">
+    <div class="form-row">
+        <label for="node-input-name"><i class="fa fa-tag"></i> 名前</label>
+        <input type="text" id="node-input-name" placeholder="名前">
+    </div>
+    
+    <div class="form-row">
+        <label for="node-input-varname"><i class="fa fa-font"></i> 変数名</label>
+        <input type="text" id="node-input-varname" placeholder="例: t1">
+    </div>
+
+    <div class="form-row">
+        <label for="node-input-format"><i class="fa fa-list"></i> フォーマット</label>
+        <select id="node-input-format">
+            <option value="date_only">日付のみ (YY-MM-DD)</option>
+            <option value="time_only">時刻のみ (HH:MM:SS)</option>
+            <option value="full_compact">連続文字列 (YYYYMMDDHHMMSS)</option>
+        </select>
+    </div>
+</script>
+
+<script type="text/x-red" data-help-name="timestamp">
+    <p>マイコン上で日時文字列を作成するためのプログラムコード（sprintf）を生成するノードです。</p>
+    <p>選択したフォーマットに合わせて、<code>msg.payload</code> にRubyコードの文字列を出力します。</p>
+</script>

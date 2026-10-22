@@ -8,13 +8,12 @@ module.exports = function(RED) {
         this.timezone = config.timezone;
         
             if (!node.server || node.server === "") {
-                // throw ではなく、Node-RED標準のエラー通知を使う
                 if (done) {
                     done("同期するサーバーの名前を入力してください");
                 } else {
                     node.error("同期するサーバーの名前を入力してください", msg);
                 }
-                return; // ここで処理を止める
+                return; 
             }
     }
 
