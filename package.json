@@ -7,7 +7,6 @@
     },
     "node-red": {
         "nodes": {
-            "sync": "ntpSync.js",
             "make timestamp":"timestamp.js"
         }
     }

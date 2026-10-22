@@ -3,9 +3,18 @@ module.exports = function(RED) {
         RED.nodes.createNode(this, config);
         var node = this;
 
+        this.server = config.server;
+        this.timezone = config.timezone;
         this.varname = config.varname || "t1";
         this.format = config.format;
-
+        if (!node.server || node.server === "") {
+            if (done) {
+                done("同期するサーバーの名前を入力してください");
+            } else {
+                node.error("同期するサーバーの名前を入力してください", msg);
+            }
+            return; 
+        }
         node.on('input', function (msg, send, done) {
             send = send || function() { node.send.apply(node, arguments) };
 
