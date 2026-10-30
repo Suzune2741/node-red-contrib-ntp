@@ -6,6 +6,7 @@ module.exports = function(RED) {
         this.server = config.server;
         this.timezone = config.timezone;
         this.varname = config.varname || "t1";
+        this.dataname = config.dataname;
         this.format = config.format;
 
         node.on('input', function (msg, send, done) {
