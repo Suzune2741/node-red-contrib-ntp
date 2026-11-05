@@ -7,14 +7,14 @@
             server: { value: "ntp.nict.jp", required: true }, 
             timezone: { value: 9, required: true },
             varname: { value: "t1", required: true },
-            dataname: {vale:"data",required:true},
+            dataname: {value:"data",required:true},
             format: { value: "full_compact" }
         },
         inputs: 1,
         outputs: 1,
         icon: "font-awesome/fa-clock-o",
         label: function () {
-            return this.name || "timestamp";
+            return this.name || "NTPタイムスタンプ";
         }
     });
 </script>
@@ -56,5 +56,4 @@
 
 <script type="text/x-red" data-help-name="timestamp">
     <p>NTPサーバー情報と、マイコン上で日時文字列を作成するためのプログラムコード（sprintf）を生成するノードです。</p>
-    <p>選択したフォーマットに合わせて、<code>msg.payload</code> にRubyコードの文字列を出力します。</p>
 </script>
