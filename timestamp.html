@@ -1,9 +1,9 @@
 <script type="text/javascript">
-    RED.nodes.registerType('get-ntp-time', {
+    RED.nodes.registerType('get NtpTime', {
         category: 'ntp',
         color: "#a6bbcf",
         defaults: {
-            name: { value: "" },
+            name: { value: "時刻の取得" },
             server: { value: "ntp.nict.jp", required: true }, 
             timezone: { value: 9, required: true },
             varname: { value: "t1", required: true },
@@ -19,7 +19,7 @@
     });
 </script>
 
-<script type="text/html" data-template-name="get-ntp-time">
+<script type="text/html" data-template-name="get NtpTime">
     <div class="form-row">
         <label for="node-input-name"><i class="fa fa-tag"></i> 名前</label>
         <input type="text" id="node-input-name" placeholder="名前">
@@ -54,6 +54,6 @@
     </div>
 </script>
 
-<script type="text/x-red" data-help-name="get-ntp-time">
+<script type="text/x-red" data-help-name="get NtpTime">
     <p>NTPサーバー情報と、マイコン上で日時文字列を作成するためのプログラムコード（sprintf）を生成するノードです。</p>
 </script>
