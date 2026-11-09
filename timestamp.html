@@ -1,5 +1,5 @@
 <script type="text/javascript">
-    RED.nodes.registerType('get-ntp-time', {
+    RED.nodes.registerType('timestamp', {
         category: 'ntp',
         color: "#a6bbcf",
         defaults: {
@@ -19,7 +19,7 @@
     });
 </script>
 
-<script type="text/html" data-template-name="get-ntp-time">
+<script type="text/html" data-template-name="timestamp">
     <div class="form-row">
         <label for="node-input-name">
             <i class="fa fa-tag"></i> 名前
@@ -67,7 +67,7 @@
     </div>
 </script>
 
-<script type="text/x-red" data-help-name="get-ntp-time">
+<script type="text/x-red" data-help-name="timestamp">
     <p>
         NTPサーバー情報と、マイコン上で日時文字列を作成するための
         プログラムコード（sprintf）を生成するノードです。
